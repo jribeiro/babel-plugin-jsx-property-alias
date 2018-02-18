@@ -1,4 +1,4 @@
 {
-	"testID": ["accessibilityLabel", "accessibilityContent"],
-	"foo": "bar"
+  "testID": ["accessibilityLabel", "accessibilityContent"],
+  "foo": "bar"
 }
