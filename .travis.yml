@@ -10,3 +10,10 @@ after_script: greenkeeper-lockfile-upload
 
 script:
   - yarn test && codecov
+
+deploy:
+  provider: npm
+  email: ${EMAIL}
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
