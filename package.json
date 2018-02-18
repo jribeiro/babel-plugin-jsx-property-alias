@@ -19,12 +19,17 @@
   "bugs": {
     "url": "https://github.com/jribeiro/babel-plugin-jsx-property-alias/issues"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
     "build": "babel src --out-dir lib",
     "lint": "eslint .",
     "flow": "flow check",
     "prepublish": "yarn build",
     "unit": "jest --config jest.json",
+    "release": "standard-version",
     "test": "run-p lint unit flow"
   },
   "dependencies": {
@@ -47,6 +52,7 @@
     "eslint-plugin-jest": "^21.12.1",
     "flow-bin": "^0.66.0",
     "jest": "^22.3.0",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "standard-version": "^4.3.0"
   }
 }
