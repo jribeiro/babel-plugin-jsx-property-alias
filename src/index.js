@@ -4,6 +4,7 @@ import {
   type State,
   jSXAttribute,
   jSXIdentifier,
+  isJSXIdentifier,
 } from '@babel/types';
 
 export default function transformProperties() {
@@ -29,7 +30,12 @@ export default function transformProperties() {
                 const parentIndex = path
                   .parent
                   .attributes
-                  .findIndex(({ name }) => name.name === prop);
+                  .findIndex(({ name }) => {
+                    if (isJSXIdentifier(name)) {
+                      return name.name === prop;
+                    }
+                    return false;
+                  });
 
                 if (parentIndex !== -1) {
                   // eslint-disable-next-line no-param-reassign

@@ -4,8 +4,8 @@ exports[`fixtures should work with alias 1`] = `
 "React.createClass({
   render: function () {
     return <div className=\\"bar\\" testID=\\"appiumSelector\\" accessibilityLabel=\\"appiumSelector\\">
-        Hello Wold!
-      </div>;
+      Hello Wold!
+    </div>;
   }
 });"
 `;
@@ -59,5 +59,15 @@ const Main = React.createClass({
 });
 React.createElement(Main, {
   testID: 'foo'
+});"
+`;
+
+exports[`fixtures should work with spread with prop 1`] = `
+"React.createClass({
+  render: function (props) {
+    return <div className=\\"bar\\" testID=\\"appiumSelector\\" {...props} accessibilityLabel=\\"appiumSelector\\">
+    Hello Wold!
+    </div>;
+  }
 });"
 `;

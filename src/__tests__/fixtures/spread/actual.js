@@ -1,5 +1,3 @@
-
-
 const Button = React.createClass({
   render: function ({ testID }) {
     return (<button testID={testID} />)
@@ -13,5 +11,5 @@ const Main = React.createClass({
 });
 
 React.createElement(Main, {
-	testID: 'foo'
+  testID: 'foo'
 });
