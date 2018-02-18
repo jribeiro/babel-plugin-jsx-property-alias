@@ -1,0 +1,3 @@
+flow-typed/
+src/__tests__/fixtures
+coverage/

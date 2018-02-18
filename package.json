@@ -1,0 +1,49 @@
+{
+  "name": "babel-plugin-jsx-property-alias",
+  "version": "1.0.0",
+  "description": "Babel plugin for making React property aliases. This plugin was created to transform testID properties into accessibility labels that Appium can read.",
+  "main": "index.js",
+  "repository": "https://github.com/jribeiro/babel-plugin-jsx-property-alias.git",
+  "author": "Joao Ribeiro <hello@joaoribeiro.me>",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "react",
+    "jsx",
+    "alias",
+    "apium",
+    "react-native",
+    "properties"
+  ],
+  "bugs": {
+    "url": "https://github.com/jribeiro/babel-plugin-jsx-property-alias/issues"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "unit": "jest --config jest.json",
+    "flow": "flow check",
+    "test": "run-p lint unit flow"
+  },
+  "dependencies": {
+    "@babel/types": "^7.0.0-beta.40"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-syntax-jsx": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-flow": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.2.2",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^2.44.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.12.1",
+    "flow-bin": "^0.66.0",
+    "jest": "^22.3.0",
+    "npm-run-all": "^4.1.2"
+  }
+}

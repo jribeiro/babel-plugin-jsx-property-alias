@@ -1,0 +1,6 @@
+{
+  "testMatch": [
+    "<rootDir>/src/**/*.test.js"
+  ],
+  "collectCoverage": true
+}
