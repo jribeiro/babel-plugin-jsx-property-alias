@@ -1,5 +1,7 @@
 # babel-plugin-jsx-property-alias
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jribeiro/babel-plugin-jsx-property-alias.svg)](https://greenkeeper.io/)
+
 > Babel plugin for making React property aliases.
 
 [![npm version](https://img.shields.io/npm/v/babel-plugin-jsx-property-alias.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-jsx-property-alias)
