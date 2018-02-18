@@ -2,7 +2,7 @@
   "name": "babel-plugin-jsx-property-alias",
   "version": "1.0.0",
   "description": "Babel plugin for making React property aliases. This plugin was created to transform testID properties into accessibility labels that Appium can read.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/jribeiro/babel-plugin-jsx-property-alias.git",
   "author": "Joao Ribeiro <hello@joaoribeiro.me>",
   "license": "MIT",
@@ -20,15 +20,18 @@
     "url": "https://github.com/jribeiro/babel-plugin-jsx-property-alias/issues"
   },
   "scripts": {
+    "build": "babel src --out-dir lib",
     "lint": "eslint .",
-    "unit": "jest --config jest.json",
     "flow": "flow check",
+    "prepublish": "yarn build",
+    "unit": "jest --config jest.json",
     "test": "run-p lint unit flow"
   },
   "dependencies": {
     "@babel/types": "^7.0.0-beta.40"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.40",
     "@babel/core": "^7.0.0-beta.40",
     "@babel/plugin-syntax-jsx": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.40",
