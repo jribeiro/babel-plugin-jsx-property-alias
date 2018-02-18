@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fixtures should work with alias 1`] = `
+"React.createClass({
+  render: function () {
+    return <div className=\\"bar\\" testID=\\"appiumSelector\\" accessibilityLabel=\\"appiumSelector\\">
+        Hello Wold!
+      </div>;
+  }
+});"
+`;
+
+exports[`fixtures should work with class 1`] = `
+"class MyComponent extends React.Component {
+  render() {
+    return <div testID=\\"foo\\" accessibilityLabel=\\"foo\\" accessibilityContent=\\"foo\\" />;
+  }
+
+}"
+`;
+
+exports[`fixtures should work with complex 1`] = `
+"React.createClass({
+  render: function ({
+    testID
+  }) {
+    return <button testID={testID} foo=\\"foo\\" accessibilityLabel={testID} accessibilityContent={testID} bar=\\"foo\\" />;
+  }
+});
+React.createClass({
+  render: function () {
+    return <Foo testID=\\"bar\\" accessibilityLabel=\\"bar\\" accessibilityContent=\\"bar\\" />;
+  }
+});"
+`;
+
+exports[`fixtures should work with noop 1`] = `
+"React.createClass({
+  render: function () {
+    return <div className=\\"bar\\" testID=\\"appiumSelector\\">
+        Hello Wold!
+      </div>;
+  }
+});"
+`;
+
+exports[`fixtures should work with spread 1`] = `
+"const Button = React.createClass({
+  render: function ({
+    testID
+  }) {
+    return <button testID={testID} accessibilityLabel={testID} />;
+  }
+});
+const Main = React.createClass({
+  render: function (props) {
+    return <Button {...props} />;
+  }
+});
+React.createElement(Main, {
+  testID: 'foo'
+});"
+`;

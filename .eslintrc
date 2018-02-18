@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": [
+    "flowtype",
+    "jest"
+  ]
+}
