@@ -47,7 +47,7 @@ Create `accessibilityLabel` alias from `testID` property
   "env": {
     "QA": {
       "plugins": [
-        ["react-rename-properties", {
+        ["jsx-property-alias", {
           "testID": "accessibilityLabel"
         }]
       ]
@@ -63,7 +63,7 @@ Create `accessibilityLabel` and `accessibilityContent` aliases from `testID` pro
   "env": {
     "QA": {
       "plugins": [
-        ["react-rename-properties", {
+        ["jsx-property-alias", {
           "testID": ["accessibilityLabel", "accessibilityContent"]
         }]
       ]
@@ -79,7 +79,7 @@ Create `accessibilityLabel` alias from `testID` property and `bar` alias from `f
   "env": {
     "QA": {
       "plugins": [
-        ["react-rename-properties", {
+        ["jsx-property-alias", {
           "testID": "accessibilityLabel",
           "foo": "bar"
         }]
