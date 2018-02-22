@@ -14,11 +14,13 @@
 
 This plugin was created as a workaround for the issue with `appium` not finding `testID` properties in React Native ecosystem: [testID information not visible on UIAutomator in Appium](https://github.com/facebook/react-native/issues/7135) and [[e2e-testing][Appium] Adding support for android:id](https://github.com/facebook/react-native/pull/9942).
 
-The underlying idea is that using `accessibilityLabel` is a human readable label intended to be read out to blind users. Abusing it as a view id on views that should not be read to blind users is a very bad practise.
+The underlying idea is that using `accessibilityLabel` is a human-readable label intended to be read out to blind users. Abusing it as a view id on views that should not be read to blind users is a very bad practice.
 
-As such, this plugin allows you to set `testID` properties in your code and, on an `QA` environment the `testID` properties will be duplicated into `accessibilityLabel` or whatever else you require.
+As such, this plugin allows you to set `testID` properties in your code and, on a `qa` environment the `testID` properties will be duplicated into `accessibilityLabel` or whatever else you require.
 
 If an `accessibilityLabel` property has been previously defined, it will be replaced by the `testID` value. This is ok if the build is specific for appium.
+
+Despite the above, this plugin is not specific to react native. You can use it to alias any property while using `jsx`. See [usage section](#usage) for more details.
 
 ## Installation
 
@@ -33,7 +35,7 @@ First set the `BABEL_ENV` to `QA` on your scripts:
 ```json
 {
   "scripts": {
-    "appium": "BABEL_ENV=QA appium ..."
+    "appium": "BABEL_ENV=appium appium ..."
   }
 }
 ```
@@ -45,7 +47,7 @@ Create `accessibilityLabel` alias from `testID` property
 ```json
 {
   "env": {
-    "QA": {
+    "appium": {
       "plugins": [
         ["jsx-property-alias", {
           "testID": "accessibilityLabel"
@@ -87,6 +89,38 @@ Create `accessibilityLabel` alias from `testID` property and `bar` alias from `f
     }
   }
 }
+```
+
+### React Native
+
+As of the time of writing, if you're using React Native, there's an additional issue where neither `BABEL_ENV` nor `NODE_ENV` can be used to specify different plugins for different `babel` environments. You can read about this issue [here](https://github.com/facebook/react-native/issues/8723).
+
+To address this, you'll either have to use [Haul CLI](https://github.com/callstack/haul) or abuse the `projectRoots` option of React Native CLI.
+
+If you don't want to use Haul CLI then create a `.babelrc` file in a subfolder.
+
+* `babel-conf/.babelrc`
+
+```json
+{
+  "presets": [
+    "react-native"
+  ],
+  "plugins": [
+    [
+      "jsx-property-alias",
+      {
+        "testID": "accessibilityLabel"
+      }
+    ]
+  ]
+}
+```
+
+Then you can launch your app as
+
+```bash
+yarn react-native start --projectRoots $PWD/babel-conf/,$PWD
 ```
 
 ## Example
