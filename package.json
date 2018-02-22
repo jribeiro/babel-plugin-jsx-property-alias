@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-jsx-property-alias",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Babel plugin for making React property aliases. This plugin was created to transform testID properties into accessibility labels that Appium can read.",
   "main": "lib/index.js",
   "repository": "https://github.com/jribeiro/babel-plugin-jsx-property-alias.git",
