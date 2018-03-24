@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/jribeiro/babel-plugin-jsx-property-alias/compare/v1.0.3...v2.0.0) (2018-03-24)
+
+
+### Features
+
+* add support for includeInEnvironments config. ([3b8433e](https://github.com/jribeiro/babel-plugin-jsx-property-alias/commit/3b8433e)), closes [#7](https://github.com/jribeiro/babel-plugin-jsx-property-alias/issues/7)
+
+
+### BREAKING CHANGES
+
+* The plugin configuration options have changed to accomodate the additional `includeInEnvironments` option. Please see the README for usage instructions.
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/jribeiro/babel-plugin-jsx-property-alias/compare/v1.0.2...v1.0.3) (2018-03-09)
 
