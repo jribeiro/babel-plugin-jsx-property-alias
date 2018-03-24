@@ -1,4 +1,6 @@
 {
-  "testID": ["accessibilityLabel", "accessibilityContent"],
-  "foo": "bar"
+  "properties": {
+	"testID": ["accessibilityLabel", "accessibilityContent"],
+	"foo": "bar"
+  }
 }

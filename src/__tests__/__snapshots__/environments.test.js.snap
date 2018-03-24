@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`environment should alias testId prop when ALIAS_ENVIRONMENT=QA 1`] = `
+"React.createClass({
+  render: function () {
+    return <div className=\\"bar\\" testID=\\"appiumSelector\\" accessibilityLabel=\\"appiumSelector\\" accessibilityContent=\\"appiumSelector\\">
+    Hello Wold!
+    </div>;
+  }
+});"
+`;
+
+exports[`environment should be a noop when no environment is set 1`] = `
+"React.createClass({
+  render: function () {
+    return <div className=\\"bar\\" testID=\\"appiumSelector\\">
+    Hello Wold!
+    </div>;
+  }
+});"
+`;

@@ -10,6 +10,8 @@
 [![Dependencies](https://img.shields.io/david/jribeiro/babel-plugin-jsx-property-alias.svg?style=flat-square)](https://david-dm.org/jribeiro/babel-plugin-jsx-property-alias)
 [![DevDependencies](https://img.shields.io/david/dev/jribeiro/babel-plugin-jsx-property-alias.svg?style=flat-square)](https://david-dm.org/jribeiro/babel-plugin-jsx-property-alias#info=devDependencies&view=list)
 
+> The babel options for this plugin have changed for version 2. If you're using version 1 of this plugin, please see the [instructions for v1](https://github.com/jribeiro/babel-plugin-jsx-property-alias/tree/v1.0.3) or upgrade following the instructions bellow.
+
 ## Why
 
 This plugin was created as a workaround for the issue with `appium` not finding `testID` properties in React Native ecosystem: [testID information not visible on UIAutomator in Appium](https://github.com/facebook/react-native/issues/7135) and [[e2e-testing][Appium] Adding support for android:id](https://github.com/facebook/react-native/pull/9942).
@@ -47,26 +49,12 @@ Create `accessibilityLabel` alias from `testID` property
 ```json
 {
   "env": {
-    "appium": {
-      "plugins": [
-        ["jsx-property-alias", {
-          "testID": "accessibilityLabel"
-        }]
-      ]
-    }
-  }
-}
-```
-
-Create `accessibilityLabel` and `accessibilityContent` aliases from `testID` property.
-
-```json
-{
-  "env": {
     "QA": {
       "plugins": [
         ["jsx-property-alias", {
-          "testID": ["accessibilityLabel", "accessibilityContent"]
+          "properties": {
+            "testID": "accessibilityLabel"
+          }
         }]
       ]
     }
@@ -82,8 +70,10 @@ Create `accessibilityLabel` alias from `testID` property and `bar` alias from `f
     "QA": {
       "plugins": [
         ["jsx-property-alias", {
-          "testID": "accessibilityLabel",
-          "foo": "bar"
+          "properties": {
+            "testID": "accessibilityLabel",
+            "foo": "bar"
+          }
         }]
       ]
     }
@@ -95,9 +85,43 @@ Create `accessibilityLabel` alias from `testID` property and `bar` alias from `f
 
 As of the time of writing, if you're using React Native, there's an additional issue where neither `BABEL_ENV` nor `NODE_ENV` can be used to specify different plugins for different `babel` environments. You can read about this issue [here](https://github.com/facebook/react-native/issues/8723).
 
-To address this, you'll either have to use [Haul CLI](https://github.com/callstack/haul) or abuse the `projectRoots` option of React Native CLI.
+To address this issue this plugin, **from version 2**, allows you to whitelist a set of environments through the `includeInEnvironments` option. When this option is set, the plugin will only run when the value of `ALIAS_ENVIRONMENT` is whitelisted.
 
-If you don't want to use Haul CLI then create a `.babelrc` file in a subfolder.
+```json
+{
+  "presets": [
+    "react-native"
+  ],
+  "plugins": [
+    ["jsx-property-alias", {
+      "includeInEnvironments": ["QA"],
+      "properties": {
+        "testID": "accessibilityLabel"
+      }
+    }]
+  ]
+}
+```
+
+You can now run the app like:
+
+```bash
+ALIAS_ENVIRONMENT=QA react-native start [--reset-cache]
+```
+
+Or if you want to bundle the JS:
+
+```bash
+ALIAS_ENVIRONMENT=QA react-native bundle [--reset-cache] # other options...
+```
+
+> **A note about caching.** React Native Bundler will cache the bundle and try to avoid re-compilation unless the code changes. Make sure that you clean up your cache while running the app in different modes.
+
+#### Complex project structures
+
+Alternatively, you can abuse the projectRoots option of React Native CLI to address this. This option is suited for more complex project structures like monorepos.
+
+Create a `.babelrc` file in a subfolder:
 
 * `babel-conf/.babelrc`
 
@@ -107,12 +131,11 @@ If you don't want to use Haul CLI then create a `.babelrc` file in a subfolder.
     "react-native"
   ],
   "plugins": [
-    [
-      "jsx-property-alias",
-      {
+    ["jsx-property-alias", {
+      "properties": {
         "testID": "accessibilityLabel"
       }
-    ]
+    }]
   ]
 }
 ```

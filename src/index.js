@@ -12,8 +12,14 @@ export default function transformProperties() {
     visitor: {
       Program(program: Program, state: State) {
         // On program start, do an explicit traversal up front for this plugin.
-        const properties = state.opts;
+        const options = state.opts;
+        const { properties = {} } = options;
         const duplicateKeys = Object.keys(properties);
+
+        if (options.includeInEnvironments &&
+            options.includeInEnvironments.indexOf(process.env.ALIAS_ENVIRONMENT) === -1) {
+          return;
+        }
 
         program.traverse({
           JSXAttribute(path) {
