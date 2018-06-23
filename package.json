@@ -45,7 +45,7 @@
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.2.2",
-    "eslint": "^4.9.0",
+    "eslint": "^5.0.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-flowtype": "^2.44.0",
     "eslint-plugin-import": "^2.7.0",
