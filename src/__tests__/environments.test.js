@@ -1,7 +1,7 @@
 // @flow
 import { transform } from 'babel-core';
 
-import plugin from '../';
+import plugin from '..';
 
 const code = `
 React.createClass({

@@ -4,7 +4,7 @@ import { join } from 'path';
 import { transformFileSync } from 'babel-core';
 
 import getPluginOptionsForDirectory from './getPluginOptionsForDirectory';
-import plugin from '../';
+import plugin from '..';
 
 describe('fixtures', () => {
   const fixturesDir = join(__dirname, 'fixtures');
