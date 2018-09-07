@@ -33,22 +33,22 @@
     "test": "run-p lint unit flow"
   },
   "dependencies": {
-    "@babel/types": "^7.0.0-beta.40"
+    "@babel/types": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.40",
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/plugin-syntax-jsx": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-flow": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-jsx": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.0.1",
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-flowtype": "^2.44.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.12.1",
     "flow-bin": "^0.80.0",
     "jest": "^22.3.0",

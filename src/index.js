@@ -16,8 +16,8 @@ export default function transformProperties() {
         const { properties = {} } = options;
         const duplicateKeys = Object.keys(properties);
 
-        if (options.includeInEnvironments &&
-            options.includeInEnvironments.indexOf(process.env.ALIAS_ENVIRONMENT) === -1) {
+        if (options.includeInEnvironments
+            && options.includeInEnvironments.indexOf(process.env.ALIAS_ENVIRONMENT) === -1) {
           return;
         }
 
