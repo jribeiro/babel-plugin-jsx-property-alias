@@ -50,7 +50,7 @@
     "eslint-plugin-flowtype": "^3.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.0.0",
-    "flow-bin": "^0.82.0",
+    "flow-bin": "^0.84.0",
     "jest": "^22.3.0",
     "npm-run-all": "^4.1.2",
     "standard-version": "^4.3.0"
