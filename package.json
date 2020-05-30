@@ -33,7 +33,7 @@
     "test": "run-p lint unit flow"
   },
   "dependencies": {
-    "@babel/types": "^7.0.0"
+    "@babel/types": "^7.10.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
