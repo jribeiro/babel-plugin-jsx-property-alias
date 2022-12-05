@@ -1,6 +1,6 @@
 const Button = React.createClass({
-  render: function ({ testID }) {
-    return (<button testID={testID} />)
+  render: function ({ testID, objToSpread }) {
+    return (<button testID={testID} {...objToSpread} />)
   }
 });
 

@@ -3,7 +3,7 @@
 exports[`environment should alias testId prop when ALIAS_ENVIRONMENT=QA 1`] = `
 "React.createClass({
   render: function () {
-    return <div className=\\"bar\\" testID=\\"appiumSelector\\" accessibilityLabel=\\"appiumSelector\\" accessibilityContent=\\"appiumSelector\\">
+    return <div className=\\"bar\\" testID=\\"appiumSelector\\" accessibilityContent=\\"appiumSelector\\" accessibilityLabel=\\"appiumSelector\\">
     Hello Wold!
     </div>;
   }

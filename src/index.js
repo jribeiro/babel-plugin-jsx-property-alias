@@ -7,6 +7,13 @@ import {
   isJSXIdentifier,
 } from '@babel/types';
 
+function findJsxSiblingAttributeIndex(path, attrName) {
+  return path
+    .parent
+    .attributes
+    .findIndex(({ name }) => isJSXIdentifier(name) && name.name === attrName);
+}
+
 export default function transformProperties() {
   return {
     visitor: {
@@ -26,6 +33,10 @@ export default function transformProperties() {
             const index = duplicateKeys.indexOf(path.node.name.name);
             if (index !== -1) {
               const key = duplicateKeys[index];
+              const jsxAttrToDuplicateIndex = findJsxSiblingAttributeIndex(
+                path,
+                path.node.name.name,
+              );
               const newProps = typeof properties[key] === 'string' ? [properties[key]] : properties[key];
 
               newProps.forEach((prop) => {
@@ -33,21 +44,13 @@ export default function transformProperties() {
                 const attr = jSXAttribute(identifier, path.node.value);
 
                 // if a property exists it gets replaced
-                const parentIndex = path
-                  .parent
-                  .attributes
-                  .findIndex(({ name }) => {
-                    if (isJSXIdentifier(name)) {
-                      return name.name === prop;
-                    }
-                    return false;
-                  });
+                const parentIndex = findJsxSiblingAttributeIndex(path, prop);
 
                 if (parentIndex !== -1) {
                   // eslint-disable-next-line no-param-reassign
                   path.parent.attributes[parentIndex] = attr;
                 } else {
-                  path.parent.attributes.push(attr);
+                  path.parent.attributes.splice(jsxAttrToDuplicateIndex + 1, 0, attr);
                 }
               });
             }
